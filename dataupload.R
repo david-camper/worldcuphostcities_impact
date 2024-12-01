@@ -16,7 +16,39 @@ gdp_by_industry <- get_sidra(
 # Save the data to a CSV file
 write.csv(gdp_by_industry, "gdp_by_industry.csv", row.names = FALSE)
 
-# Display the first few rows of the data
-head(gdp_by_industry)
+
+
+# # Query SIDRA for employment data
+# employment_data <- get_sidra(
+#     x = 1419,  # Table ID for employment by sector
+#     period =  "all",  # Time range, range of data that is available
+#     geo = "MetroRegion",  # Geographic level
+#     geo.filter = list(MetroRegion = "all")  # Specific states (e.g., São Paulo, Rio de Janeiro, Minas Gerais)
+# )
+
+# # # Save to CSV
+# write.csv(employment_data, "employment_data.csv", row.names = FALSE)
+
+
+# energy_data <- get_sidra(
+#     x = 5944,  # Table ID for electricity consumption
+#     period = "all",  #  Time range, range of data that is available
+#     geo = "State",  # Geographic level
+#     geo.filter = list("State" = all_states)  # São Paulo, Rio de Janeiro, Minas Gerais
+# )
+
+# write.csv(energy_data, "energy_data.csv", row.names = FALSE)
+
+# Query public transportation expenditure data
+transport_expenditure <- get_sidra(
+    x = 1411,  # Table ID for public transportation expenditures
+    period = "all",  # Time range
+    geo = "State",  # Geographic level
+    geo.filter = list("State" = all_states)  # Example states: São Paulo, Rio de Janeiro, Minas Gerais
+)
+
+write.csv(transport_expenditure, "transport_expenditure.csv", row.names = FALSE)
+
+
 
 
